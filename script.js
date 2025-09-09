@@ -18,9 +18,12 @@ addBookToLibrary("man", "goliath", 233, "not yet")
 addBookToLibrary("pan", "goliath", 233, "not yet")
 console.log(myLibrary);
 
-const mainContent = document.getElementById("main-content")
+const bookContainer = document.querySelector(".book-container")
 myLibrary.forEach(element => {
-    
+    var book = element.title
+    var div = document.createElement('div')
+    div.innerText = book
+    bookContainer.appendChild(div)
 });
 
 
