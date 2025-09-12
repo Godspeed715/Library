@@ -9,12 +9,37 @@
 <body>
     <div class="main-container">
         <div class="header">
+            <button id="addBook">Add Book</button>
+            <dialog id="modal">
+                <form id="bookForm">
+                    <div>
+                        <label for="bookTitle">Book Title  </label>
+                        <input type="text" id="bookTitle" required>
+                    </div>
+                    <div>
+                        <label for="bookAuthor">Book Author</label>
+                        <input type="text" id="bookAuthor" required>
+                    </div>
+                    <div>
+                        <label for="bookPages">No of Pages</label>
+                        <input type="text" id="bookPages" required></div>
+                    <div>
+                        <label for="bookReadStatus">Read Status</label>
+                        <select name="" id="bookReadStatus">
+                            <option value="read">Read</option>
+                            <option value="not_yet">Not Yet Read</option>
+                        </select>
+                    </div>
+                    
 
+                    <button type="submit" id="bookSubmit">Submit</button>
+                </form>
+            </dialog>
         </div>
         <div class="main-content">
             <h1>Library Books</h1>
             <div class="book-container">
-                <div>ban</div>
+                
             </div>
         </div>
     </div>
