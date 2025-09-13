@@ -16,15 +16,26 @@ function clearBookContainer(){
 }
 function refreshLibrary(){
   myLibrary.forEach(element => {
+    var mainDiv = document.createElement('div')
+    var textDiv = document.createElement('div')
+    const removeBtn = document.createElement('button')
+    const readBtn = document.createElement('button')
+
     var book_contents = `
     Title: ${element.title} \n
     Author: ${element.author} \n
     No of Pages: ${element.pages}\n
     Reading Status: ${element.read}
     `
-    var div = document.createElement('div')
-    div.innerText = book_contents
-    bookContainer.appendChild(div)
+    textDiv.innerText = book_contents
+    removeBtn.innerHTML = "Delete Book"
+    readBtn.innerHTML = "Toggle Read"
+
+    mainDiv.appendChild(textDiv)
+    mainDiv.appendChild(removeBtn)
+    mainDiv.appendChild(readBtn)
+    
+    bookContainer.appendChild(mainDiv)
 });
 }
 
