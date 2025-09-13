@@ -4,6 +4,9 @@ function Book(title, author, pages, read, id){
   this.pages = pages
   this.read = read 
   this.id = id
+  this.toggleReadStatus = () => {
+    this.read = this.read === 'Read' ? 'Read' : 'Not Yet Read'
+  }
   this.info = () => {
     return `${this.title} by ${this.author}, ${pages} pages, ${read} yet.`
   }
