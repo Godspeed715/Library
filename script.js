@@ -5,7 +5,7 @@ function Book(title, author, pages, read, id){
   this.read = read 
   this.id = id
   this.toggleReadStatus = () => {
-    this.read = this.read === 'Read' ? 'Read' : 'Not Yet Read'
+    this.read = (this.read === 'Read') ? 'Not Yet Read' : 'Read'
   }
   this.info = () => {
     return `${this.title} by ${this.author}, ${pages} pages, ${read} yet.`
@@ -94,6 +94,17 @@ document.querySelector('.book-container').addEventListener('click', (event) => {
           return false
         else
           return true
+      })
+      refreshLibrary()
+    }
+})
+document.querySelector('.book-container').addEventListener('click', (event) => {
+    if (event.target.classList.contains('readBtn')){
+      const bookId = event.target.parentNode.dataset.bookId
+      myLibrary = myLibrary.map( (book) => {
+        if (book.id === bookId)
+          book.toggleReadStatus()
+        return book
       })
       refreshLibrary()
     }
