@@ -12,12 +12,17 @@ function Book(title, author, pages, read, id){
   }
 }
 
+function deleteBook(){
+
+}
+
 function clearBookContainer(){
   document.querySelectorAll(".book-container div").forEach(element => {
     element.remove()
   })
 }
 function refreshLibrary(){
+  clearBookContainer()
   myLibrary.forEach(element => {
     var mainDiv = document.createElement('div')
     var textDiv = document.createElement('div')
@@ -31,18 +36,20 @@ function refreshLibrary(){
     Reading Status: ${element.read}
     `
     textDiv.innerText = book_contents
+    removeBtn.classList.add("removeBtn")
     removeBtn.innerHTML = "Delete Book"
+    readBtn.classList.add('readBtn')
     readBtn.innerHTML = "Toggle Read"
 
     mainDiv.appendChild(textDiv)
     mainDiv.appendChild(removeBtn)
     mainDiv.appendChild(readBtn)
-    
+    mainDiv.dataset.bookId = `${element.id}`
     bookContainer.appendChild(mainDiv)
 });
 }
 
-const myLibrary = [];
+let myLibrary = [];
 const bookContainer = document.querySelector(".book-container")
 
 function addBookToLibrary(title, author, pages, read) {
@@ -77,6 +84,19 @@ document.getElementById('bookForm').addEventListener('submit', (event) => {
   refreshLibrary()
   console.log(myLibrary);
   event.target.reset()
+})
+
+document.querySelector('.book-container').addEventListener('click', (event) => {
+    if (event.target.classList.contains('removeBtn')){
+      const bookId = event.target.parentNode.dataset.bookId
+      myLibrary = myLibrary.filter( (book) => {
+        if (book.id === bookId)
+          return false
+        else
+          return true
+      })
+      refreshLibrary()
+    }
 })
 
 
