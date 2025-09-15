@@ -57,8 +57,9 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read, new_id))
 }
 
-addBookToLibrary("man", "goliath", 233, "not yet")
+addBookToLibrary("Holy Bible", "Holy Spirit", 987, "Not Yet Read")
 addBookToLibrary("pan", "goliath", 233, "not yet")
+addBookToLibrary("The Hobbit", "J.R.R Tolkien", 295, "Not Yet Read")
 console.log(myLibrary);
 refreshLibrary()
 
